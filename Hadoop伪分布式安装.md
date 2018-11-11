@@ -113,6 +113,35 @@
 (4)成功启动后,可以访问Web界面查看NameNode和DataNode信息，还可以查看HDFS中的文件。(http://localhost:50070)
 
 2.使用HDFS，创建目录，上传文件和下载文件。
->我们将 ./etc/hadoop 中的 xml 文件作为输入文件复制到分布式文件系统中，即将 /usr/local/hadoop/etc/hadoop 复制到分布式文件系统中的 /user/root/input 中。我们使用的是 root 用户，并且已创建相应的用户目录 /user/root ，因此在命令中就可以使用相对路径如 input，其对应的绝对路径就是 /user/root/input。
 
 (1)首先需要在HDFS中创建用户目录(hdfs dfs -mkdir -p /user/hadoop)。
+>我们使用的是 root 用户，并且已创建相应的用户目录 /user/root ，因此在命令中就可以使用相对路径如 input，其对应的绝对路径就是 /user/root/input。
+
+(2)创建input文件夹(./bin/hdfs dfs -mkdir -p input)，作为上传文件存放的文件夹。
+
+(3)将./etc/hadoop中的xml文件作为输入文件复制到分布式文件系统中(./bin/hdfs dfs -put ./etc/hadoop/*.xml input)。
+>即将/usr/local/hadoop/etc/hadoop复制到分布式文件系统中的/user/root/input中。
+
+(4)查看文件列表(./bin/hdfs dfs -ls input)。
+
+(5)将其中一个hdfs-site文件下载到本地(./bin/hdfs dfs -get hdfs-site.xml ./output)。
+>先创建一个output文件夹作为下载文件存放的文件夹(mkdir ./output)。
+
+注意：HDFS有三种shell命令方式：hadoop fs、hadoop dfs、 hdfs dfs。
+
+    hadoop fs适用任何不同的文件系统，如本地文件系统和HDFS文件系统
+
+    hadoop dfs只能适用于HDFS文件系统
+
+    hdfs dfs跟hadoop dfs的命令作用一样，也只能适用于HDFS文件系统
+   
+#### 实验常见问题
+
+1.namenode无法启动 
+
+解决方案：$bin/hadoop dfsadmin -safemode leave #关闭safe mode 这样，就解决了namenode 无法启动的问题。 我们在使用 hadoop namenode -format 时，才会初始化一个name文件夹，在启动datanode后，才会创建一个data目录，所以我使用的方法是，把/cloud/hadoop-2.2.0/tmp 目录清空，然后重新格式化namenode,再分别启动 hdfs。
+
+2.datanode无法启动
+修改/etc/hosts，增加如下内容
+
+127.0.0.1 1502-centos6-38

@@ -142,6 +142,7 @@
 解决方案：$bin/hadoop dfsadmin -safemode leave #关闭safe mode 这样，就解决了namenode 无法启动的问题。 我们在使用 hadoop namenode -format 时，才会初始化一个name文件夹，在启动datanode后，才会创建一个data目录，所以我使用的方法是，把/cloud/hadoop-2.2.0/tmp 目录清空，然后重新格式化namenode,再分别启动 hdfs。
 
 2.datanode无法启动
+
 修改/etc/hosts，增加如下内容
 
 127.0.0.1 1502-centos6-38

@@ -110,7 +110,7 @@
 
 >文末有相应的解决方案
 
-(4)成功启动后，可以访问Web界面(http://localhost:50070)查看NameNode和DataNode信息，还可以查看HDFS中的文件。
+(4)成功启动后,可以访问Web界面查看NameNode和DataNode信息，还可以查看HDFS中的文件。(http://localhost:50070)
 
 2.使用HDFS，创建目录，上传文件和下载文件。
 >我们将 ./etc/hadoop 中的 xml 文件作为输入文件复制到分布式文件系统中，即将 /usr/local/hadoop/etc/hadoop 复制到分布式文件系统中的 /user/root/input 中。我们使用的是 root 用户，并且已创建相应的用户目录 /user/root ，因此在命令中就可以使用相对路径如 input，其对应的绝对路径就是 /user/root/input。

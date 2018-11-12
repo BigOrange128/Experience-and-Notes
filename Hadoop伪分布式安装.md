@@ -136,12 +136,16 @@
     hdfs dfs跟hadoop dfs的命令作用一样，也只能适用于HDFS文件系统
    
 #### 实验常见问题
+>我们在使用 hadoop namenode -format 时，才会初始化一个name文件夹，在启动datanode后，才会创建一个data目录。
 
 1.namenode无法启动 
 
-解决方案：$bin/hadoop dfsadmin -safemode leave #关闭safe mode 这样，就解决了namenode 无法启动的问题。 我们在使用 hadoop namenode -format 时，才会初始化一个name文件夹，在启动datanode后，才会创建一个data目录，所以我使用的方法是，把/cloud/hadoop-2.2.0/tmp 目录清空，然后重新格式化namenode,再分别启动 hdfs。
+解决方案：
+(1)使用$bin/hadoop dfsadmin -safemode leave命令关闭safe mode。这样，就解决了namenode 无法启动的问题。 
 
 2.datanode无法启动
+
+解决方案：
 
 (1)修改/etc/hosts(vi /etc/hosts)，增加如下内容:127.0.0.1 主机名。
 >可以使用hostname命令查看主机名。

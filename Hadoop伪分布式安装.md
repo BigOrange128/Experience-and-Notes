@@ -1,5 +1,5 @@
 # Hadoop伪分布式安装与使用
-
+>文末有HDFS的体系结构图，以供参考。[跳转](#HDFS体系结构图)。
 
 #### 实验目的
 掌握Hadoop的伪分布式安装方法。由于不具备集群环境，需要在一台计算机上模拟一个小的集群。
@@ -153,3 +153,8 @@
 (2)使用rm -rf /usr/local/hadoop/tmp命令删除tmp文件夹。
 
 (3)使用hdfs namenode -format再次进行格式化。
+
+#### HDFS体系结构图
+>图片来自度娘，侵权请告知。
+
+![HDFS体系结构图](https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1541998983852&di=cc332abdbcc9431de3d85aed2486458e&imgtype=jpg&src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D2170214035%2C2699723917%26fm%3D214%26gp%3D0.jpg)

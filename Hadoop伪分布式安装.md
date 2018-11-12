@@ -143,6 +143,9 @@
 
 2.datanode无法启动
 
-修改/etc/hosts，增加如下内容
+(1)修改/etc/hosts(vi /etc/hosts)，增加如下内容:127.0.0.1 主机名。
+>可以使用hostname命令查看主机名。
 
-127.0.0.1 1502-centos6-38
+(2)使用rm -rf /usr/local/hadoop/tmp命令删除tmp文件夹。
+
+(3)使用hdfs namenode -format再次进行格式化。

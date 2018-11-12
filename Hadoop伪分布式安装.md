@@ -108,7 +108,7 @@
 (3)启动完成后，通过jps命令判断是否成功启动。
 >若成功启动则会列出如下进程: “NameNode”、”DataNode” 和 “SecondaryNameNode”（如果 SecondaryNameNode 没有启动，请运行 sbin/stop-dfs.sh 关闭进程，然后再次尝试启动尝试）。如果没有 NameNode 或 DataNode ，那就是配置不成功，请仔细检查之前步骤，或通过查看启动日志排查原因。
 
->[文末有相应的解决方案](#实验常见问题)
+>文末有相应的[解决方案](#实验常见问题)
 
 (4)成功启动后,可以访问Web界面查看NameNode和DataNode信息，还可以查看HDFS中的文件。(http://localhost:50070)
 

@@ -49,8 +49,6 @@ SELINUX=disabled
 - 使用命令“mkdir etc”创建用于存放MySQL Cluster管理节点配置文件的目录，并使用命令“cd etc”进入该目录。
 - 使用命令“touch config.ini”创建MySQL Cluster管理节点的配置文件，并使用命令“vi config.ini”对配置文件进行修改，在其中添加如下内容：
         
-        [NDB_MGMDDEFAULT]
-        DataDir=/usr/local/mysql/data
         [NDBD DEFAULT]
         NoOfReplicas=2
         DataMemory=512M
@@ -115,3 +113,29 @@ SELINUX=disabled
 - 在管理节点主机上使用命令“ndb_mgm”进入MySQL Cluster管理节点的控制台，在控制台中使用“show”可以查看节点状况，若有相应SQL服务节点的连接信息，则表示SQL服务节点启动并连接成功。
 - 使用命令“mysql -u root -p”登录MySQL数据库，会提示输入密码，该密码为之前进行安装初始化时所显示的初始密码，正确输入密码成功登录MySQL数据库之后会进入MySQL的控制台。
   - 在MySQL控制台使用命令“SET PASSWORD=PASSWORD('1');”重新设置数据库的“root”用户的登录密码，其中“****”部分为自定义的新密码。
+  - 在MySQL控制台使用命令“USE mysql;”切换到“mysql”数据库。
+  - 在MySQL控制台使用命令“UPDATE user SET host='%' WHERE user='root';”修改数据库的root用户所接收请求来源的范围。
+  - 在MySQL控制台使用命令“FLUSHPRIVILEGE;”刷新数据库的权限信息使新配置的权限生效。
+  - 在MySQL控制台使用命令“exit”可以退出MySQL控制台返回到系统命令行界面。
+  - 使用命令“firewall-cmd --zone=public --add-port=3306/tcp --permanent”添加系统防火墙的端口策略，对外开启MySQL所使用的端口“3306”；
+  - 使用命令“firewall-cmd -reload”重启系统防火墙服务，使新添加的端口策略生效。
+### 验证
+- 在任意一台SQL服务节点主机上使用命令“mysql -u root -p”登录到MySQL数据库，会提示输入密码，正确输入密码成功登录MySQL数据库之后会进入MySQL的控制台。
+- 在MySQL控制台使用命令“CREATE DATABSE test;”创建数据库“test”。
+- 在任意一台其它SQL服务节点主机上使用命令“mysql -u root -p”登录到MySQL数据库，会提示输入密码，正确输入密码成功登录MySQL数据库之后会进入MySQL的控制台。
+#### 可以使用命令“ssh 目标主机名或IP地址”远程登录到集群中其它SQL服务节点主机进行操作，完成所有操作后使用命令“logout”退出当前登录。
+- 在MySQL控制台使用命令“SHOW DATABSES;”显示数据库列表，若存在名为“test”的数据库，则表示集群同步数据成功。
+### 常见问题
+- 无法启动节点
+  - 修改hosts文件，添加IP和主机名的对应关系。(vi /etc/hosts)
+    
+        例如
+        192.168.1.1  Cluster-1
+        192.168.1.2  Cluster-2
+  - 修改network文件，修改主机名。(vi /etc/sysconfig/network)
+    
+        NTEWORKING=yes
+        HOSTNAME=Cluster-1
+- 无法连接至管理节点
+  - 优先检查配置，确保配置文件没有出错。
+  - 关闭防火墙。(systemctl stop firewalld.service)

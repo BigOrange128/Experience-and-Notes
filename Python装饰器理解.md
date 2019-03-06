@@ -141,7 +141,7 @@
   
   刚好Python函数具有收集参数这种东西(*args， **kwargs)。我们使用收集参数作为装饰器内闭包函数的参数就可以写出更加通用的装饰器了。
   
-  > 收集参数的存在也是Python不需要函数重载的原因。[友情链接](https://github.com/taizilongxu/interview_python/blob/master/Readme.md#13-python%E4%B8%AD%E9%87%8D%E8%BD%BD)
+  > 收集参数的存在也是Python不需要函数重载的原因。友情链接：[Python中重载](https://github.com/taizilongxu/interview_python/blob/master/Readme.md#13-python%E4%B8%AD%E9%87%8D%E8%BD%BD)
   
   接下来看一个例子：
       
@@ -168,8 +168,9 @@
       2
      
   我们写了一个把日志输出到界面的通用装饰器。
-  
-- [参考文章](http://python.jobbole.com/81683/)
+
+### 参考文章
+- [12步轻松搞定python装饰器](http://python.jobbole.com/81683/)
   
   
   

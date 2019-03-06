@@ -134,7 +134,44 @@
   如果难理解还是尝试将被装载的函数写到装饰器函数里看，应该会方便理解。
 
 - 扩展
-
+  
+  在前面的例子中，装饰器内的闭包函数都固定了参数。这就意味着这种装饰器只能给传递参数个数相同的函数使用。
+  
+  如果我们想要写一种更加通用的装饰器怎么办呢？
+  
+  刚好Python函数具有收集参数这种东西(*args， **kwargs)。我们使用收集参数作为装饰器内闭包函数的参数就可以写出更加通用的装饰器了。
+  
+  > 收集参数的存在也是Python不需要函数重载的原因。[友情链接](https://github.com/taizilongxu/interview_python/blob/master/Readme.md#13-python%E4%B8%AD%E9%87%8D%E8%BD%BD)
+  
+  接下来看一个例子：
+      
+      def logger(func):
+          def inner(*args, **kwargs): #1
+              print "Arguments were: %s, %s" % (args, kwargs)
+              return func(*args, **kwargs) #2
+          return inner
+          
+      @logger
+      def foo1(x, y=1):
+           return x * y
+      @logger
+      def foo2():
+          return 2
+      foo1(5, 4)
+      Arguments were: (5, 4), {}
+      20
+      foo1(1)
+      Arguments were: (1,), {}
+      1
+      foo2()
+      Arguments were: (), {}
+      2
+     
+  我们写了一个把日志输出到界面的通用装饰器。
+  
+- [参考文章](http://python.jobbole.com/81683/)
+  
+  
   
   
   

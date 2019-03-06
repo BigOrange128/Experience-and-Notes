@@ -102,10 +102,39 @@
   这样是不是就很好理解了，他们就像是一个组合函数。因为Python具有的闭包特性。
   内部的嵌套函数被返回时保留了自身命名空间内记录的数据，整个函数就能够顺利执行。
   
-            
-            
-       
-      
+- 实例
+  
+      def wrapper(func):
+          def checker(a, b): # 1
+              if a.x < 0 or a.y < 0:
+                 a = Coordinate(a.x if a.x > 0 else 0, a.y if a.y > 0 else 0)
+              if b.x < 0 or b.y < 0:
+                 b = Coordinate(b.x if b.x > 0 else 0, b.y if b.y > 0 else 0)
+              ret = func(a, b)
+              if ret.x < 0 or ret.y < 0:
+                 ret = Coordinate(ret.x if ret.x > 0 else 0, ret.y if ret.y > 0 else 0)
+              return ret
+          return checker
+          
+      class Coordinate(object):
+            def __init__(self, x, y):
+                  self.x = x
+                  self.y = y
+            def __repr__(self):
+                  return "Coord: " + str(self.__dict__)
+      @wrapper
+      def add(a, b):
+            return Coordinate(a.x + b.x, a.y + b.y)
+      @wrapper
+      def sub(a, b):
+            return Coordinate(a.x - b.x, a.y - b.y)
+ 
+add(a, b)和sum(a, b)是对两个坐标对象进行加减运算的函数。通过装饰器为这两个函数加入了边界检查的特殊功能。
+
+如果难理解还是尝试将被装载的函数写到装饰器函数里看，应该会方便理解。
+
+- 扩展
+
   
   
   

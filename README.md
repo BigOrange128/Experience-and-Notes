@@ -1,4 +1,4 @@
-# 本仓库存放一些没有分类的文件
+# 仓库存放Python学习和其他学习的笔记
 ## [Python装饰器理解](https://github.com/BigOrange128/Python-and-Other/blob/master/Python%E8%A3%85%E9%A5%B0%E5%99%A8%E7%90%86%E8%A7%A3.md)
 
     自己对装饰器的原理和功能的理解。
@@ -13,4 +13,4 @@
     使用华为eNSP模拟器操作，实现对两台服务器业务的控制策略。
   
     
-包括一些日常实验和学习的笔记
+

@@ -62,6 +62,7 @@
       (<cell at 0x: int object at 0x>,)
  
   从4.py我们可以看出如果将inner作为一个函数被outer返回时。它内部命名空间保存的变量并没有随着调用的结束被销毁。这就是闭包。
+  
   这就是说当一个函数被整体返回时，他是能够记录自己的命名空间的。如果说像虚拟机的快照是不是容易理解一些？
   
 - 装饰器
@@ -79,6 +80,31 @@
       decorated()
       before some_func
       2
+      
+  观察5.py，我们可以认为decorated就是函数foo的一个装饰器版本，他是一个加强版的foo函数。
+  
+  如果我们不想创建一个新函数，而是给foo附加这个功能。我们可以执行foo = outer(foo)，现在这个foo就是一个具有了新的功能的加强版函数。
+  这跟使用@标识符是一样的。
+  
+      foo = outer(foo)
+      等同于
+      @outer
+      def foo():
+      
+  如果理解起来有困难，我们可以将这个foo函数填充到装饰器函数里来看一下：
+  
+        def outer(return 1):
+          def inner():
+            print "before some_func"
+            ret = return 1 # 1
+            return ret + 1
+          return inner
+  这样是不是就很好理解了，他们就像是一个组合函数。因为Python具有的闭包特性。
+  内部的嵌套函数被返回时保留了自身命名空间内记录的数据，整个函数就能够顺利执行。
+  
+            
+            
+       
       
   
   

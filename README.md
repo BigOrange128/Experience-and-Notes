@@ -13,7 +13,7 @@
     使用华为eNSP模拟器操作，实现对两台服务器业务的控制策略。
 ## [CentOS7搭建DHCP服务器](https://github.com/BigOrange128/Experience-and-Notes/blob/master/CentOS7%E6%90%AD%E5%BB%BADHCP%E6%9C%8D%E5%8A%A1%E5%99%A8.md)
 
-    通过配置dhcp服务器，实现自动地址分配和为特定计算机保留特定地址。
+    dhcp服务器的基本配置，内容包括实现自动地址分配和为特定计算机保留特定地址。
   
     
 

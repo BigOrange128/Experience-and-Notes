@@ -11,6 +11,9 @@
 ## [基于IP地址和端口的策略配置](https://github.com/BigOrange128/Python-and-Other/blob/master/%E5%9F%BA%E4%BA%8EIP%E5%9C%B0%E5%9D%80%E5%92%8C%E7%AB%AF%E5%8F%A3%E7%9A%84%E7%AD%96%E7%95%A5%E9%85%8D%E7%BD%AE.md)
     
     使用华为eNSP模拟器操作，实现对两台服务器业务的控制策略。
+## [CentOS7搭建DHCP服务器](https://github.com/BigOrange128/Experience-and-Notes/blob/master/CentOS7%E6%90%AD%E5%BB%BADHCP%E6%9C%8D%E5%8A%A1%E5%99%A8.md)
+
+    通过配置dhcp服务器，实现自动地址分配和为特定计算机保留特定地址。
   
     
 

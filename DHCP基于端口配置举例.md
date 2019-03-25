@@ -24,7 +24,7 @@ eNSP拓扑图：
     interface Vlan 30
     ip address 192.168.30.1 255.255.255.0
     dhcp  select  interface	#设置 DHCP 基于端口配置
-    dhcp   server   excluded-ip-address 192.168.30.201  192.168.30.254  #排除 192.168.20.201 到 192.168.30.254
+    dhcp  server   excluded-ip-address 192.168.30.201  192.168.30.254  #排除 192.168.20.201 到 192.168.30.254
     dhcp  server  dns-list  8.8.8.8
     #端口1
     interface GigabitEthernet0/0/1 
@@ -38,6 +38,9 @@ eNSP拓扑图：
     interface GigabitEthernet0/0/3 
     port link-type access
     port default vlan 30
+### 验证
+    在PC端使用ipconfig命令查看ip信息是否为分配地址
+
 
 
 

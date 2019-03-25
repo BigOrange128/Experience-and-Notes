@@ -4,11 +4,11 @@
 
 某企业部署两台业务服务器，其中Server1通过TCP 8888端口对外提供服务，Server2通过UDP 6666端口对外提供服务。需要通过FW进行访问控制，8：00～17：00的上班时间段内禁止IP地址为10.1.1.2、10.2.1.2的两台PC使用这两台服务器对外提供的服务。其他PC在任何时间都可以使用这两台服务器对外提供的服务。
 
-![需求图](http://114.115.243.64/wordpress/wp-content/uploads/2018/12/jiyuIPdizhi.png)
+![需求图](http://note.youdao.com/noteshare?id=11cddf2868147b58f52211475978f665)
 
 在eNSP下的拓扑结构为
 
-![eNSP拓扑图](http://114.115.243.64/wordpress/wp-content/uploads/2018/12/eNSP拓扑结构.png)
+![eNSP拓扑图](http://note.youdao.com/noteshare?id=f04c4af7f0482c4b1f5e368a9067f482)
 
 ### 配置思路
 

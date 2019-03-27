@@ -16,6 +16,7 @@
     dhcp服务器的基本配置，内容包括实现自动地址分配和为特定计算机保留特定地址。
 ## [DHCP基于端口配置举例](https://github.com/BigOrange128/Experience-and-Notes/blob/master/DHCP%E5%9F%BA%E4%BA%8E%E7%AB%AF%E5%8F%A3%E9%85%8D%E7%BD%AE%E4%B8%BE%E4%BE%8B.md)
 
+    使用华为eNSP模拟器操作，实现多个子网内的机器通过DHCP方式获得地址。
     
   
     

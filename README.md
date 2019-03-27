@@ -14,6 +14,9 @@
 ## [CentOS7搭建DHCP服务器](https://github.com/BigOrange128/Experience-and-Notes/blob/master/CentOS7%E6%90%AD%E5%BB%BADHCP%E6%9C%8D%E5%8A%A1%E5%99%A8.md)
 
     dhcp服务器的基本配置，内容包括实现自动地址分配和为特定计算机保留特定地址。
+## [DHCP基于端口配置举例](https://github.com/BigOrange128/Experience-and-Notes/blob/master/DHCP%E5%9F%BA%E4%BA%8E%E7%AB%AF%E5%8F%A3%E9%85%8D%E7%BD%AE%E4%B8%BE%E4%BE%8B.md)
+
+    
   
     
 

@@ -3,8 +3,6 @@ import time
 user_name = 'brother'
 user_passwd = '7474741'
 
-user = {'brother': 7474741, }
-
 commodity = (
     ('肥仔快乐水', 80), ('肥仔快乐面', 90),
     ('肥仔快乐糖', 60), ('肥仔大礼包', 500),

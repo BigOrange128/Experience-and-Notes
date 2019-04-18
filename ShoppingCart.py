@@ -1,22 +1,23 @@
 import time
 
-user_name = 'brother'
-user_passwd = '7474741'
+user_name = 'didi'
+user_passwd = '12345'
+
 
 commodity = (
-    ('肥仔快乐水', 80), ('肥仔快乐面', 90),
+    ('肥仔快乐水', 200), ('肥仔快乐面', 90),
     ('肥仔快乐糖', 60), ('肥仔大礼包', 500),
 )
 user_money = 0
 user_commodity = []
 while 1:
-    print('测试账号：{}，测试密码：{}'.format(user_name, user_passwd))
-    in_name = input("欢迎来到肥仔商店, 请输入您的账号！(退出请输入'quit')\n")
-    if in_name  == 'quit':
+    print('测试账号：{}\n测试密码：{}\n退出方式：q或Q'.format(user_name, user_passwd))
+    in_name = input("欢迎来到肥仔商店, 请输入您的账号！\n")
+    if in_name == 'q' or in_name == 'Q':
         print("欢迎下次光临！")
         exit()
     in_passwd = input('输入您的密码!\n')
-    if in_passwd == 'quit':
+    if in_passwd == 'q' or in_name == 'Q':
         print("欢迎下次光临！")
         exit()
     if in_name != user_name or in_passwd != user_passwd:
@@ -30,22 +31,19 @@ while 1:
                 print('购物卡金额应为数字,请重新输入!')
                 continue
             while 1:
-                print('序号 商品名 价格')
+                print('---------商品清单----------')
+                print('序号      商品名     价格')
                 for index, i in enumerate(commodity):
-                    print(index, end=' ')
-                    for y in i:
-                        print(y, end=' ')
-                    print('')
-                    print('*'*10)
-                in_shopping = input("请输入您要购买的商品序号,退出请输入'quit'!\n")
-                if in_shopping == 'quit':
-                    print('您的购买清单为:')
-                    print('商品名 价格')
-                    for i in user_commodity:
-                        for y in i:
-                            print(y, end=' ')
-                        print('')
-                        print('*' * 10)
+                    print('{}      {}      ￥{}'.format(index, i[0], i[1]))
+                print('---------------------------')
+                in_shopping = input("请输入您要购买的商品序号!\n")
+                if in_shopping == 'q' or in_name == 'Q':
+                    if user_commodity:
+                        print('---------购买清单----------')
+                        print('商品名          价格')
+                        for i in user_commodity:
+                            print('{}       {}'.format(i[0], i[1]))
+                        print('---------------------------')
                     print('您的余额为', user_money)
                     print('您即将退出系统！')
                     print("欢迎下次光临！")

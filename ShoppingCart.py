@@ -17,7 +17,7 @@ while 1:
         print("欢迎下次光临！")
         exit()
     in_passwd = input('输入您的密码!\n')
-    if in_passwd == 'q' or in_name == 'Q':
+    if in_passwd == 'q' or in_passwd == 'Q':
         print("欢迎下次光临！")
         exit()
     if in_name != user_name or in_passwd != user_passwd:
@@ -37,7 +37,7 @@ while 1:
                     print('{}      {}      ￥{}'.format(index, i[0], i[1]))
                 print('---------------------------')
                 in_shopping = input("请输入您要购买的商品序号!\n")
-                if in_shopping == 'q' or in_name == 'Q':
+                if in_shopping == 'q' or in_shopping == 'Q':
                     if user_commodity:
                         print('---------购买清单----------')
                         print('商品名          价格')

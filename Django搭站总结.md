@@ -83,9 +83,28 @@ Django是一个开放源代码的Web应用框架，由Python写成。基于MVC�
       
       return render(request, 'blog/index.html', context={'post_list': post_list})
 -  模型管理器 objects
-   >提供一系列从数据库中取数据方法
+   > 提供一系列从数据库中取数据方法
        
        #获取数据库中的所有Post，按创建时间逆序排列
        Post.objects.all().order_by('-created_time')# - 号表示逆序，all方法返回一个 QuerySet（类似于列表）
    
 ### 定义模型
+> 一个类相当于一个表
+
+    from django.db import models
+    
+    class Post(models.Model):
+        #字符型，最大长度70
+        title = models.CharField(max_length=70)
+        #存储大段文本
+        body = models.TextField()
+        #时间类型
+        created_time = models.DateTimeField()
+        #blank表示可以为空
+        excerpt = models.CharField(max_length=200, blank=True)
+        #一篇文章只能对应一个分类，但是一个分类下可以有多篇文章
+        #分类和文章为一对多关系
+        category = models.ForeignKey(Category)
+        #一篇文章可以有多个标签，同一个标签下也可能有多篇文章
+        #多对多关系
+        tags = models.ManyToManyField(Tag, blank=True)

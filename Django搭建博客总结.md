@@ -40,7 +40,7 @@ Django是一个开放源代码的Web应用框架，由Python写成。基于MVC�
     #path函数用于定义一个url 
     path('contact/', views.Contact, name = 'contact'), #当链接为***/contact/时，调用绑定的Contact方法，name后为别名。  
     #当视图中定义的为类而不是方法时，需要用as_view()方法
-    path('post/<int:pk>/', views.PostDetailView.as_view(), name = 'detail'),
+    path('post/<int:pk>/', views.PostDetailView.as_view(), name = 'detail'),#post/后匹配至少一个数字，通过pk传给视图
     
     #include一般在项目的urls文件中使用，用于将单个应用中的url包含到项目中
     path('', include('blog.urls')),#将blog应用的urls包含进项目
@@ -52,6 +52,8 @@ Django是一个开放源代码的Web应用框架，由Python写成。基于MVC�
     
     {{ title }}
     {{ post.pk }}
+    {{ post.get_absolute_url }}
+    
 #### 模板标签
 > 用{%***%}包裹，类似于函数。使用前应先引入{%load ***%}
  
@@ -73,7 +75,37 @@ Django是一个开放源代码的Web应用框架，由Python写成。基于MVC�
       <div class="no-post">暂时还没有发布的文章！</div>
       #结束循环
       {% endfor %}
+- block
        
+      #类似占位，使用在通用模板中
+      {% block main %}
+      {% endblock main %} 
+      
+      #其他页面继承
+      {% extends 'base.html' %}
+      #在标签内添加独有的代码
+      {% block main %}
+           .....
+      {% endblock main %} 
+#### 自定义模板标签
+> 在应用下创建templatetags包，包内blog_tags文件存储标签
+
+    from django import template
+    from ..models import Post
+    
+    #实例
+    register = template.Library()
+    
+    #挂载装饰器(注册为模板标签)
+    @register.simple_tag
+    def get_recent_posts(num=5):
+        return Post.objects.all().order_by('-created_time')[:num]
+    
+    #使用前导入
+    {% load blog_tags %}
+    #将函数返回值给模板变量
+    {% get_recent_posts as recent_post_list %}
+         
 ### 定义视图
  
 - render
@@ -82,11 +114,20 @@ Django是一个开放源代码的Web应用框架，由Python写成。基于MVC�
       from django.shortcuts import render
       
       return render(request, 'blog/index.html', context={'post_list': post_list})
--  模型管理器 objects
-   > 提供一系列从数据库中取数据方法
+
+- 模型管理器 objects
+  > 提供一系列从数据库中取数据方法
        
-       #获取数据库中的所有Post，按创建时间逆序排列
-       Post.objects.all().order_by('-created_time')# - 号表示逆序，all方法返回一个 QuerySet（类似于列表）
+      #获取数据库中的所有Post，按创建时间逆序排列
+      Post.objects.all().order_by('-created_time')# - 号表示逆序，all方法返回一个 QuerySet（类似于列表）
+      #返回一个时间列表
+      Post.objects.dates('created_time', 'month', order='DESC')#创建时间，精度，降序
+      
+- get_object_or_404
+  > 查找数据，不存在返回404  
+  
+      #查找对应pk的post
+      post = get_object_or_404(Post, pk=pk)
    
 ### 定义模型
 > 一个类相当于一个表
@@ -111,3 +152,28 @@ Django是一个开放源代码的Web应用框架，由Python写成。基于MVC�
         tags = models.ManyToManyField(Tag, blank=True)
         #唯一值，重复时传递错误信息
         email = models.EmailField('邮箱', unique = True, error_messages={'unique':"该邮箱已被使用！"})
+        #类方法
+        def get_absolute_url(self):
+            return reverse('blog:detail', kwargs={'pk': self.pk})
+            
+- reverse 
+  >反向url，一般用于模型自己构造链接，来访问模型中的不同数据。
+    
+      from django.urls import reverse
+      #查找视图函数对应的url规则，将pk参数填入，构造完整url链接
+      reverse('blog:detail', kwargs={'pk': self.pk})#视图函数，pk等于id
+      
+#### 注册模型
+> 在应用的admin文件中注册，注册后才可以在后台管理页面显示出来。
+
+    from django.contrib import admin
+    from .models import Post, Category, Tag
+    
+    #定制Admin
+    class PostAdmin(admin.ModelAdmin):
+    #显示列表
+        list_display = ['title', 'created_time', 'modified_time', 'category', 'author']
+
+    admin.site.register(Post， PostAdmin)
+    admin.site.register(Category)
+    admin.site.register(Tag)

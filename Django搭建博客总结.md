@@ -87,6 +87,11 @@ Django是一个开放源代码的Web应用框架，由Python写成。基于MVC�
       {% block main %}
            .....
       {% endblock main %} 
+- url
+    
+      #解析视图函数对应的url，构造完整的url，类似于使用reverse函数
+      {% url 'blog:archives' date.year date.month %}
+
 #### 自定义模板标签
 > 在应用下创建templatetags包，包内blog_tags文件存储标签
 
@@ -122,6 +127,10 @@ Django是一个开放源代码的Web应用框架，由Python写成。基于MVC�
       Post.objects.all().order_by('-created_time')# - 号表示逆序，all方法返回一个 QuerySet（类似于列表）
       #返回一个时间列表
       Post.objects.dates('created_time', 'month', order='DESC')#创建时间，精度，降序
+      #按条件查询
+      Post.objects.filter(created_time__year=year,
+                                    created_time__month=month
+                                    ).order_by('-created_time')  #区别于python的调用属性，用__代替了.
       
 - get_object_or_404
   > 查找数据，不存在返回404  

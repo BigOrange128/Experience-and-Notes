@@ -1,4 +1,4 @@
-## Django搭建博客总结
+## Django搭站总结
 > 对个人博客网站搭建所学到的知识进行一个梳理和记录。
 
 ### Django介绍
@@ -100,11 +100,14 @@ Django是一个开放源代码的Web应用框架，由Python写成。基于MVC�
         body = models.TextField()
         #时间类型
         created_time = models.DateTimeField()
-        #blank表示可以为空
+        #可以为空
         excerpt = models.CharField(max_length=200, blank=True)
         #一篇文章只能对应一个分类，但是一个分类下可以有多篇文章
         #分类和文章为一对多关系
-        category = models.ForeignKey(Category)
+        #model对象的ForeignKey关联的对象被删除时，此对象一起被级联删除
+        category = models.ForeignKey(Category, on_delete=models.CASCADE)#CASCADE为默认参数
         #一篇文章可以有多个标签，同一个标签下也可能有多篇文章
         #多对多关系
         tags = models.ManyToManyField(Tag, blank=True)
+        #唯一值，重复时传递错误信息
+        email = models.EmailField('邮箱', unique = True, error_messages={'unique':"该邮箱已被使用！"})

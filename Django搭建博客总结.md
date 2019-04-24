@@ -185,4 +185,4 @@ Django是一个开放源代码的Web应用框架，由Python写成。基于MVC�
 
     admin.site.register(Post， PostAdmin)
     admin.site.register(Category)
-    admin.site.register(Tag)
+    admin.site.register(Tag

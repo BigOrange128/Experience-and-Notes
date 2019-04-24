@@ -137,6 +137,15 @@ Django是一个开放源代码的Web应用框架，由Python写成。基于MVC�
   
       #查找对应pk的post
       post = get_object_or_404(Post, pk=pk)
+
+#### 类视图
+> 继承Django提供的特定类能减少重复代码量
+
+    #获取某个模型列表
+    class IndexView(ListView):
+        model = Post   #指定获取的模型
+        template_name = 'blog/index.html'  #指定传递的模板
+        context_object_name = 'post_list'  #指定存放数据的变量名，在模板中使用
    
 ### 定义模型
 > 一个类相当于一个表
@@ -152,6 +161,8 @@ Django是一个开放源代码的Web应用框架，由Python写成。基于MVC�
         created_time = models.DateTimeField()
         #可以为空
         excerpt = models.CharField(max_length=200, blank=True)
+        #只能为正整数或0
+        views = models.PositiveIntegerField(default=0)
         #一篇文章只能对应一个分类，但是一个分类下可以有多篇文章
         #分类和文章为一对多关系
         #model对象的ForeignKey关联的对象被删除时，此对象一起被级联删除
@@ -185,4 +196,4 @@ Django是一个开放源代码的Web应用框架，由Python写成。基于MVC�
 
     admin.site.register(Post， PostAdmin)
     admin.site.register(Category)
-    admin.site.register(Tag
+    admin.site.register(Tag)

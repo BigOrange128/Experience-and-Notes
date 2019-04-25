@@ -133,11 +133,24 @@ Django是一个开放源代码的Web应用框架，由Python写成。基于MVC�
                                     ).order_by('-created_time')  #区别于python的调用属性，用__代替了.
       
 - get_object_or_404
-  > 查找数据，不存在返回404  
+  > 查找数据，不存在返回404 
   
       #查找对应pk的post
       post = get_object_or_404(Post, pk=pk)
 
+- redirect
+  > 重定向
+  
+      from django.shortcuts import redirect
+      #redirect 函数接收一个模型的实例时，调用这个模型实例的 get_absolute_url 方法，然后重定向到方法返回的URL。
+      redirect(post)
+
+- xxx_set
+  > 反向查找，xxx_set 中的 xxx 为关联模型的类名（小写）
+              
+      cate.post_set.all()#等价于下
+      Post.objects.filter(category=cate)
+      
 #### 类视图
 > 继承Django提供的特定类能减少重复代码量
 
@@ -197,3 +210,56 @@ Django是一个开放源代码的Web应用框架，由Python写成。基于MVC�
     admin.site.register(Post， PostAdmin)
     admin.site.register(Category)
     admin.site.register(Tag)
+    
+### 定义表单
+> 应用下的forms文件存放表单。
+
+    from django import forms
+    from .models import Comment
+
+    class CommentForm(forms.ModelForm):
+        class Meta:
+            model = Comment
+            #要显示的字段
+            fields = ['name', 'email', 'url', 'text']
+    
+    #前端显示
+    <form action="{% url 'comments:post_comment' post.pk %}" method="post" class="comment-form">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-4">
+                <label for="{{ form.name.id_for_label }}">名字：</label>
+                {{ form.name }}
+                {{ form.name.errors }}
+            </div>
+            ......
+            <div class="col-md-12">
+                <label for="{{ form.text.id_for_label }}">评论：</label>
+                {{ form.text }}
+                {{ form.text.errors }}
+                <button type="submit" class="comment-btn">发表</button>
+            </div>
+        </div>    <!-- row -->
+    </form>
+    
+            
+#### 视图处理表单经典流程
+
+    def form_process_view(request):
+        if request.method == 'POST':
+            # 请求为 POST，利用用户提交的数据构造一个绑定了数据的表单
+            form = Form(request.POST)
+
+            if form.is_valid():
+                # 表单数据合法
+                # 进行其它处理...
+                # 跳转
+                return redirect('/')
+        else:
+            # 请求不是 POST，构造一个空表单
+            form = Form()
+    
+        # 渲染模板
+        # 如果不是 POST 请求，则渲染的是一个空的表单
+        # 如果用户通过表单提交数据，但是数据验证不合法，则渲染的是一个带有错误信息的表单
+        return render(request, 'template.html', context={'form': form})

@@ -147,9 +147,12 @@ Django是一个开放源代码的Web应用框架，由Python写成。基于MVC�
 
 - xxx_set
   > 反向查找，xxx_set 中的 xxx 为关联模型的类名（小写）
-              
+        
+      #返回相应的所有文章列表      
       cate.post_set.all()#等价于下
       Post.objects.filter(category=cate)
+      #返回对应的所有文章的个数
+      post.comment_set.count()
       
 #### 类视图
 > 继承Django提供的特定类能减少重复代码量
@@ -188,9 +191,23 @@ Django是一个开放源代码的Web应用框架，由Python写成。基于MVC�
         #类方法
         def get_absolute_url(self):
             return reverse('blog:detail', kwargs={'pk': self.pk})
+        #内部类
+        class Meta:
+            ordering = ['-created_time']  
+            
+            
+- Meta
+> 指定一些属性来规定这个类该有的一些特性
+
+        
+        class Meta:
+            #时间倒序排列
+            ordering = ['-created_time']  
+            
+    
             
 - reverse 
-  >反向url，一般用于模型自己构造链接，来访问模型中的不同数据。
+  > 反向url，一般用于模型自己构造链接，来访问模型中的不同数据。
     
       from django.urls import reverse
       #查找视图函数对应的url规则，将pk参数填入，构造完整url链接

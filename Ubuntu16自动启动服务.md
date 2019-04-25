@@ -1,7 +1,7 @@
-## Ubuntu16自动启动服务
+# Ubuntu16自动启动服务
 > 将某项服务配置为自动启动服务。在Ubuntu 14的系统，可以用upstart的方式。但在16以后的版本中这个命令失效了。
 
-以创建Gunicorn服务为例
+以启动Gunicorn服务为例
 ### 创建service文件
 > /lib/systemd/system/目录下，创建服务脚本 blog.service
 
@@ -24,3 +24,5 @@
     systemctl start blog.service
     #添加到开机自动运行
     systemctl enable siar.service
+    #查看服务是否启动
+    ps -ef | grep gunicorn

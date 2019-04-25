@@ -26,3 +26,5 @@
     systemctl enable siar.service
     #查看服务是否启动
     ps -ef | grep gunicorn
+### 参考文章
+- [blog服务自动启动服务脚本 Gunicorn](https://blog.csdn.net/qq_41854273/article/details/83343053)

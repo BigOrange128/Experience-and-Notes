@@ -1,4 +1,4 @@
-## Django搭站总结
+# Django搭站总结
 > 对个人博客网站搭建所学到的知识进行一个梳理和记录。
 
 ### Django介绍
@@ -279,4 +279,4 @@ Django是一个开放源代码的Web应用框架，由Python写成。基于MVC�
         # 渲染模板
         # 如果不是 POST 请求，则渲染的是一个空的表单
         # 如果用户通过表单提交数据，但是数据验证不合法，则渲染的是一个带有错误信息的表单
-        return render(request, 'template.html', context={'form': form})
+        return render(request, 'template.html', context={'form': form}

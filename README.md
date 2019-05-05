@@ -31,4 +31,7 @@
 ## [Ubuntu16自动启动服务](https://github.com/BigOrange128/Experience-and-Notes/blob/master/Ubuntu16%E8%87%AA%E5%8A%A8%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1.md)
 
          在Ubuntu16系统配置自动启动服务，采用systemctl方法。
+## [Django搭建博客总结](https://github.com/BigOrange128/Experience-and-Notes/blob/master/Django%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%80%BB%E7%BB%93.md)
 
+
+         总结搭建个人博客时所学到的知识，包括一些对Django的简单理解、使用到的方法等。

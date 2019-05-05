@@ -17,7 +17,18 @@
 ## [DHCP基于端口配置举例](https://github.com/BigOrange128/Experience-and-Notes/blob/master/DHCP%E5%9F%BA%E4%BA%8E%E7%AB%AF%E5%8F%A3%E9%85%8D%E7%BD%AE%E4%B8%BE%E4%BE%8B.md)
 
     使用华为eNSP模拟器操作，实现多个子网内的机器通过DHCP方式获得地址。
-    
-  
-    
+## [BinarySearch](https://github.com/BigOrange128/Experience-and-Notes/blob/master/BinarySearch.py)
+
+    Python两种方法实现二分查找，递归和普通方法。
+
+    使用华为eNSP模拟器操作，实现多个子网内的机器通过DHCP方式获得地址。
+## [Django can't filter by month using MySQL](https://github.com/BigOrange128/Experience-and-Notes/blob/master/Django%20can't%20filter%20by%20month%20using%20MySQL.md)
+
+    使用filter方法按月份过滤数据时，查不到结果。提供Linux和Windows两种系统的解决方法。    
+## [ShoppingCart](https://github.com/BigOrange128/Experience-and-Notes/blob/master/ShoppingCart.py)   
+
+    Python购物车实验的实现。
+## [Ubuntu16自动启动服务](https://github.com/BigOrange128/Experience-and-Notes/blob/master/Ubuntu16%E8%87%AA%E5%8A%A8%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1.md)
+
+         在Ubuntu16系统配置自动启动服务，采用systemctl方法。
 

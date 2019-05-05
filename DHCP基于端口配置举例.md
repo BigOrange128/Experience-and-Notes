@@ -9,7 +9,7 @@
  
 eNSP拓扑图：
 
-![eNSP拓扑图](http://note.youdao.com/noteshare?id=0791439f17ac5e1ffa4d921c802e2ad9)
+![eNSP拓扑图](https://s2.ax1x.com/2019/05/05/E02vOf.png)
 
 ### 配置命令
     sysname DHCPtest

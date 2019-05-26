@@ -27,8 +27,8 @@ class Solution:
                 tail = prev.next
         finally:
             return head
+#测试       
 head1 = ListNode(1, ListNode(2, ListNode(3, ListNode(4))))
-
 print(head1.value, head1.next.value, head1.next.next.value, head1.next.next.next.value, head1.next.next.next.next)
 solu = Solution()
 head2 = solu.swapPairs(head1)

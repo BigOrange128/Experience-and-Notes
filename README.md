@@ -35,3 +35,23 @@
 
 
          总结搭建个人博客时所学到的知识，包括一些对Django的简单理解、使用到的方法等。
+## [BinarySearch]()
+
+
+         pass
+## [Finding the Intersection Point of Cross-linked List]()
+
+
+         pass
+## [Pair exchange of linked list]()
+
+
+         pass
+ ## [QuickSort]()
+
+
+         pass    
+ ## [YoungTableau]()
+
+
+         pass              

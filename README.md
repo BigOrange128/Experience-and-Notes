@@ -36,19 +36,19 @@
 
          总结搭建个人博客时所学到的知识，包括一些对Django的简单理解、使用到的方法等。
 
-## [Finding the Intersection Point of Cross-linked List]()
+## [Finding the Intersection Point of Cross-linked List](https://github.com/BigOrange128/Experience-and-Notes/blob/master/Finding%20the%20Intersection%20Point%20of%20Cross-linked%20List.py)
 
 
-         pass
-## [Pair exchange of linked list]()
+         输入两个列表，判断是否是交叉链表，如果是则返回交点。
+## [Pair exchange of linked list](https://github.com/BigOrange128/Experience-and-Notes/blob/master/Pair%20exchange%20of%20linked%20list.py)
 
 
-         pass
- ## [QuickSort]()
+         列表成对调换。例如：将1->2->3->4转换成2->1->4->3
+ ## [QuickSort](https://github.com/BigOrange128/Experience-and-Notes/blob/master/QuickSort.py)
 
 
-         pass    
+         快速排序，递归方法的实现。   
  ## [YoungTableau]()
 
 
-         pass              
+         杨氏矩阵查找              

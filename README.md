@@ -51,4 +51,4 @@
  ## [YoungTableau](https://github.com/BigOrange128/Experience-and-Notes/blob/master/YoungTableau.py)
 
 
-         杨氏矩阵查找              
+         杨氏矩阵查找，使用Step-wise线性搜索原理。              

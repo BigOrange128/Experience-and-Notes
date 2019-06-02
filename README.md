@@ -44,11 +44,16 @@
 
 
          列表成对调换。例如：将1->2->3->4转换成2->1->4->3
- ## [QuickSort](https://github.com/BigOrange128/Experience-and-Notes/blob/master/QuickSort.py)
+## [QuickSort](https://github.com/BigOrange128/Experience-and-Notes/blob/master/QuickSort.py)
 
 
          快速排序，递归方法的实现。   
- ## [YoungTableau](https://github.com/BigOrange128/Experience-and-Notes/blob/master/YoungTableau.py)
+## [YoungTableau](https://github.com/BigOrange128/Experience-and-Notes/blob/master/YoungTableau.py)
 
 
-         杨氏矩阵查找，使用Step-wise线性搜索原理。              
+         杨氏矩阵查找，使用Step-wise线性搜索原理。
+ 
+## [TreeTraversal](https://github.com/BigOrange128/Experience-and-Notes/blob/master/TreeTraversal.py)
+
+
+         包括二叉树的层次遍历，深度遍历，前序、中序、后序遍历。

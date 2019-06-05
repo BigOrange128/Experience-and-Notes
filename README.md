@@ -53,11 +53,11 @@
 
          杨氏矩阵查找，使用Step-wise线性搜索原理。
  
-## [TreeTraversal](https://github.com/BigOrange128/Experience-and-Notes/blob/master/TreeTraversal.py)
+## [BinaryTreeTraversal](https://github.com/BigOrange128/Experience-and-Notes/blob/master/BinaryTreeTraversal.py)
 
 
          包括二叉树的层次遍历，深度遍历，前序、中序、后序遍历。
-## [TreeCommonProblem](https://github.com/BigOrange128/Experience-and-Notes/blob/master/TreeTraversal.py)
+## [BinaryTreeCommonProblem](https://github.com/BigOrange128/Experience-and-Notes/blob/master/BinaryTreeCommonProblem.py)
 
 
          包括求最大树深问题，求两棵树是否相同问题，前序中序求后序问题。         

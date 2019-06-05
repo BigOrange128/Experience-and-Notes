@@ -65,6 +65,8 @@
 
 
          将单链表逆置，例如1->2->3->4变为1<-2<-3<-4。       
+## [两个字符串是否为变位词](https://github.com/BigOrange128/Experience-and-Notes/blob/master/%E4%B8%A4%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E5%90%A6%E4%B8%BA%E5%8F%98%E4%BD%8D%E8%AF%8D.py)
+
+
+         变位词(anagrams)指的是组成两个单词的字符相同，但位置不同的单词，例如：abbcd，abcdb。              
          
-         
-        

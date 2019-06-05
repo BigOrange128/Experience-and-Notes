@@ -60,4 +60,11 @@
 ## [BinaryTreeCommonProblem](https://github.com/BigOrange128/Experience-and-Notes/blob/master/BinaryTreeCommonProblem.py)
 
 
-         包括求最大树深问题，求两棵树是否相同问题，前序中序求后序问题。         
+         包括求最大树深问题，求两棵树是否相同问题，前序中序求后序问题。 
+## [LinkedListInversion](https://github.com/BigOrange128/Experience-and-Notes/blob/master/LinkedListInversion.py)
+
+
+         将单链表逆置，例如1->2->3->4变为1<-2<-3<-4。       
+         
+         
+        

@@ -37,7 +37,7 @@ while True:
     message = input("您要发送什么消息？(退出请按q)\n")
     if message == 'q':
         print("再见！")
-        continue
+        break
     client.send('{}'.format(message).encode('utf-8'))
     data = client.recv(1024)
     print(data.decode('utf-8'))

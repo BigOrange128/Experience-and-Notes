@@ -11,15 +11,16 @@ import socket
 server = socket.socket()
 server.bind(('127.0.0.1', 1234))
 server.listen(5)
-
+print('waiting for client...')
+conn, addr = server.accept()
 while True:
-    print('waiting for client...')
-    conn, addr = server.accept()
-    print("client is coming from {}".format(addr[0]))
-    cli_into = conn.recv(1024)
-
-    print("client info:{}".format(cli_into.decode(  )))
-    conn.send(cli_into.upper())
+    try:
+        print("client is coming from {}".format(addr[0]))
+        cli_into = conn.recv(1024)
+        print("client info:{}".format(cli_into.decode('utf-8')))
+        conn.send(cli_into.upper())
+    except ConnectionResetError:
+        conn, addr = server.accept()
 server.close()
 '''
 client:
@@ -29,13 +30,14 @@ client:
 '''
 import socket
 
+client = socket.socket()
+client.connect(('localhost', 1234))
+
 while True:
-    client = socket.socket()
-    client.connect(('localhost', 1234))
     message = input("您要发送什么消息？(退出请按q)\n")
     if message == 'q':
         print("再见！")
-        break
+        continue
     client.send('{}'.format(message).encode('utf-8'))
     data = client.recv(1024)
     print(data.decode('utf-8'))

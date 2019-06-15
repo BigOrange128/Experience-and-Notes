@@ -69,6 +69,6 @@
 
 
          变位词(anagrams)指的是组成两个单词的字符相同，但位置不同的单词，例如：abbcd，abcdb。              
-## [Python_Socket](https://github.com/BigOrange128/Experience-and-Notes/blob/master/Python_Socket.py.py)
+## [Python_Socket](https://github.com/BigOrange128/Experience-and-Notes/blob/master/Python_Socket.py)
 
     实现服务器端与客户端通信，客户端与服务器可以进行多次通信。           

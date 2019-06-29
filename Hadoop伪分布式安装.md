@@ -36,7 +36,7 @@
     示例
     [test]
     name=test
-    baseurl=http://****/centos/$releasever/$barsearch/
+    baseurl=http://****/centos/$releasever/$basearch/
     enabled=1
     gpgchek=0
     

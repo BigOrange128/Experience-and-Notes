@@ -38,7 +38,7 @@
     name=test
     baseurl=http://****/centos/$releasever/$basearch/
     enabled=1
-    gpgchek=0
+    gpgcheck=0
     
 (3)使用yum list|grep openjdk命令查看yum中名称为openjdk的文件列表。使用yum install命令进行安装。
 >本实验安装的是java-1.7.0-openjdk-devel.x86_64版本。
